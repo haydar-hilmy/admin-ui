@@ -1,0 +1,23 @@
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #070707;
+}
+
+.button-wrap{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.flex-col{
+    flex-direction: column !important;
+}
+.flex-row{
+    flex-direction: row !important;
+}
