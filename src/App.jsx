@@ -1,11 +1,11 @@
 import ErrorRoute from "./pages/errorPage";
 import SignInPage from "./pages/signin";
 import SignUpPage from "./pages/signup";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 const myRouter = createBrowserRouter([
   {
     path: "/",
-    element: <h1>MAIN PAGE</h1>,
+    element: <Navigate to="/login" replace />, // diarahkan otomatis ke /login
     errorElement: <ErrorRoute/>
   },
   {
