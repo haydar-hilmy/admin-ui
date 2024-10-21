@@ -1,4 +1,5 @@
 import ErrorRoute from "./pages/errorPage";
+import ForgotPage from "./pages/forgot";
 import SignInPage from "./pages/signin";
 import SignUpPage from "./pages/signup";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
@@ -15,6 +16,10 @@ const myRouter = createBrowserRouter([
   {
     path: "/register",
     element: <SignUpPage/>,
+  },
+  {
+    path: "/forgot",
+    element: <ForgotPage/>
   }
 ]);
 

@@ -6,7 +6,7 @@ function AuthLayout(props) {
   return (
     <div className="flex justify-center min-h-screen items-center bg-special-mainBg">
       {/* container start */}
-      <div className="w-full max-w-sm">
+      <div className="pt-10 pb-10 w-full max-w-sm">
         {/* logo start */}
         <Logo />
         {/* logo end */}
@@ -15,8 +15,11 @@ function AuthLayout(props) {
           {children}
         </div>
         {/* form end */}
+
+        {type != null ? (
+          <>
         {/* teks start */}
-        <div className="my-9 px-7 flex justify-center text-xs text-gray-03 items-center flex-col static">
+        <div className="my-5 px-7 flex justify-center text-xs text-gray-03 items-center flex-col static">
           <div className="border border-gray-05 w-full"></div>
           <div class="px-2 bg-special-mainBg absolute"> or sign in with</div>
         </div>
@@ -24,7 +27,7 @@ function AuthLayout(props) {
         {/* sign in with google start */}
         <div className="mb-8">
           <button
-            className="h-12 flex items-center justify-center rounded-md text-sm w-full bg-gray-05 text-gray-01"
+            className="h-12 flex items-center justify-center rounded-md text-sm w-full bg-gray-05 text-gray-01 hover:opacity-60"
             type="button"
           >
             <svg
@@ -86,19 +89,26 @@ function AuthLayout(props) {
             <span>Continue with Google</span>
           </button>
         </div>
+        </>
+        ) : "" }
         {/* sign in with google end */}
         {/* link start */}
-        <div className="flex justify-center">
+        <div className="flex flex-col items-center gap-4 justify-center">
           {type == "sign in" ? (
             <>
-              <a href="register" className="text-primary text-sm font-bold">Create an account</a>
+              <a href="register" className="text-primary text-sm font-bold hover:text-gray-500">Create an account</a>
+              <a href="forgot" className="text-primary text-sm font-normal hover:text-gray-500">Forgot Password</a>
             </>
-          ) : (
+          ) : type == "sign up" ? (
             <>
               <span className="text-sm text-gray-03">
                 Already have an account?&nbsp;
               </span>
               <a href="login" className="text-primary text-sm font-bold">Sign In Here</a>
+            </>
+          ) : (
+            <>
+              
             </>
           )}
         </div>
