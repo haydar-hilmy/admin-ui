@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Button from "../Elements/Button"
 import LabeledInput from "../Elements/LabeledInput"
 
@@ -15,9 +16,11 @@ const FormForgot = () => {
                         name="email"
                     />
                 </div>
-                <Button variant="h-12 rounded-md text-sm bg-primary w-full text-white" type="submit">
-                    Password Reset
-                </Button>
+                <Link to="/login">
+                    <Button variant="h-12 rounded-md text-sm bg-primary w-full text-white" type="submit">
+                        Password Reset
+                    </Button>
+                </Link>
                 <a href="/login">
                     <Button variant="h-12 pt-5 text-sm w-full text-gray-800" type="button">
                         Back To Login

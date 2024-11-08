@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Elements/Button";
 import LabeledInput from "../Elements/LabeledInput";
 
@@ -28,9 +29,11 @@ const FormSignUp = () => {
           name="password"
         />
       </div>
-      <Button variant="h-12 rounded-md text-sm bg-primary w-full text-white" type="submit">
-        Register
-      </Button>
+      <Link to="/login">
+        <Button variant="h-12 rounded-md text-sm bg-primary w-full text-white" type="submit">
+          Register
+        </Button>
+      </Link>
     </form>
   );
 };

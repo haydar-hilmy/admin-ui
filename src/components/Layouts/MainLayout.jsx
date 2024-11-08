@@ -2,11 +2,11 @@ import Header from "../Fragments/Header";
 import Navbar from "../Fragments/Navbar";
 
 const MainLayout = (props) => {
-  const { children } = props
+  const { children, type } = props
   return (
     <div className="flex bg-special-mainBg w-screen min-h-screen max-w-full">
       {/* navbar start*/}
-      <Navbar />
+      <Navbar type={type} />
       {/* navbar end*/}
       <div className="w-screen">
         {/* header start*/}

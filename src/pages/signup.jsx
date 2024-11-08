@@ -1,4 +1,4 @@
-import FormSignUp from "../components/Fragments/FromSignUp"
+import FormSignUp from "../components/Fragments/FormSignUp"
 import AuthLayout from "../components/Layouts/AuthLayout"
 import SignInPage from "./signin"
 

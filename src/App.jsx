@@ -5,6 +5,8 @@ import ForgotPage from "./pages/forgot";
 import SignInPage from "./pages/signin";
 import SignUpPage from "./pages/signup";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import TransactionPage from "./pages/transaction";
+import GoalPage from "./pages/goalpage";
 const myRouter = createBrowserRouter([
   // {
   //   path: "/",
@@ -31,6 +33,14 @@ const myRouter = createBrowserRouter([
   {
     path: "/balance",
     element: <BalancePage />
+  },
+  {
+    path: "/transaction",
+    element: <TransactionPage/>
+  },
+  {
+    path: "/goals",
+    element: <GoalPage/>
   }
 ]);
 
