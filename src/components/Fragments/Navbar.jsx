@@ -4,7 +4,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
-import {     ExitToApp } from "@mui/icons-material";
+import {     ExitToApp, MoreVert } from "@mui/icons-material";
 import Logo from "../Elements/Logo";
 
 const Navbar = (props) => {
@@ -41,7 +41,7 @@ const Navbar = (props) => {
                 </div>
                 <div className="sticky bottom-12">
                     <Link to="/login">
-                        <div className="flex bg-special-bg3 px-4 py-3 rounded-md duration-100 hover:bg-red-500">
+                        <div className="flex bg-special-bg3 px-4 py-3 rounded-md duration-100 bg-gray-600 hover:bg-red-500">
                             <div className="mx-auto text-white sm:mx-0"><ExitToApp /></div>
                             <div className="ms-3 hidden text-white sm:block">Logout</div>
                         </div>
@@ -54,7 +54,7 @@ const Navbar = (props) => {
                             <br />
                             <b>View Profile</b>
                         </div>
-                        <div className="hidden text-white sm:block"><PersonIcon></PersonIcon></div>
+                        <div className="hidden text-white sm:block"><MoreVert/> </div>
                     </div>
                 </div>
             </nav>

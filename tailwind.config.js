@@ -13,7 +13,8 @@ export default {
         primary: ['yellow']
       },
       backgroundColor: {
-        'primary': '#0074d9'
+        'primary': '#0074d9',
+        'main-bg': '#f3f3f3'
       }
     },
   },

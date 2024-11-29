@@ -4,7 +4,7 @@ import Navbar from "../Fragments/Navbar";
 const MainLayout = (props) => {
   const { children, type } = props
   return (
-    <div className="flex bg-special-mainBg w-screen min-h-screen max-w-full">
+    <div className="flex bg-main-bg w-screen min-h-screen max-w-full">
       {/* navbar start*/}
       <Navbar type={type} />
       {/* navbar end*/}
