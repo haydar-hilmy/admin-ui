@@ -4,8 +4,8 @@ import MainLayout from "../components/Layouts/MainLayout";
 import bills from "../data/bill";
 import { expensesBreakdowns } from "../data/expenses";
 import transactions from "../data/transactions";
-import CardTransaction from "../components/Fragments/Dashboard/cardTransaction";
-import CardBill from "../components/Fragments/Dashboard/cardBill";
+import CardTransaction from "../components/Fragments/Dashboard/CardTransaction";
+import CardBill from "../components/Fragments/Dashboard/CardBill";
 import CardExpenseBreakdown from "../components/Fragments/Dashboard/CardExpenseBreakdown";
 
 const DashboardPage = (props) => {
