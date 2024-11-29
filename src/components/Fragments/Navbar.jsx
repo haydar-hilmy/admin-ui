@@ -48,7 +48,7 @@ const Navbar = (props) => {
                     </Link>
                     <div className="border-b my-10 border-b-special-bg"></div>
                     <div className="flex justify-between">
-                        <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="src/assets/icon/icon-user-manx.png"/></div>
+                        <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="images/icon-user-manx.png"/></div>
                         <div className="hidden text-white sm:block">
                             Admin
                             <br />
