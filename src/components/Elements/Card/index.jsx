@@ -7,7 +7,7 @@ const Card = (props) => {
                 <div className="text-lg text-gray-600 mb-2">{title}</div>
             ) : ("")
         }
-            <div className={`${variant} bg-white rounded-lg px-6 py-5 shadow-xl`}>
+            <div style={{ flex: 1 }} className={`${variant} bg-white rounded-lg px-6 py-5 shadow-xl`}>
                 {
                     titleCard != null ? (
                         <div className="text-lg text-gray-02 mb-2">{titleCard}</div>
