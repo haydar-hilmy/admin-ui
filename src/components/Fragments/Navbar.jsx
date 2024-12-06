@@ -4,7 +4,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
-import {     ExitToApp, MoreVert } from "@mui/icons-material";
+import { ExitToApp, MoreVert } from "@mui/icons-material";
 import Logo from "../Elements/Logo";
 
 const Navbar = (props) => {
@@ -28,7 +28,7 @@ const Navbar = (props) => {
                     </Link>
                     <Link to="/transaction" >
                         <div className={`${type == "transaction" ? "bg-primary" : ""} flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
-                            <div className="mx-auto text-white sm:mx-0"><CompareArrowsIcon/> </div>
+                            <div className="mx-auto text-white sm:mx-0"><CompareArrowsIcon /> </div>
                             <div className="ms-3 hidden text-white sm:block">Transaction</div>
                         </div>
                     </Link>
@@ -46,15 +46,15 @@ const Navbar = (props) => {
                             <div className="ms-3 hidden text-white sm:block">Logout</div>
                         </div>
                     </Link>
-                    <div className="border-b my-10 border-b-special-bg"></div>
-                    <div className="flex justify-between">
-                        <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="images/icon-user-manx.png"/></div>
+                    <div className="border-b my-10 border-b-special-bg items-center"></div>
+                    <div className="flex justify-between items-center cursor-pointer">
+                        <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="images/icon-user-manx.png" /></div>
                         <div className="hidden text-white sm:block">
                             Admin
                             <br />
                             <b>View Profile</b>
                         </div>
-                        <div className="hidden text-white sm:block"><MoreVert/> </div>
+                        <div className="hidden text-white sm:block"><MoreVert /> </div>
                     </div>
                 </div>
             </nav>
