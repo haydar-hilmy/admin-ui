@@ -6,12 +6,25 @@ import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
 import AdsClickIcon from '@mui/icons-material/AdsClick';
 import { ExitToApp, MoreVert } from "@mui/icons-material";
 import Logo from "../Elements/Logo";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../context/themeContext";
 
 const Navbar = (props) => {
     const { type } = props
+
+    const themes = [
+        { name: "theme-green", bgcolor: "bg-[#299D91]", color: "#299D91" },
+        { name: "theme-blue", bgcolor: "bg-[#1E90FF]", color: "#1E90FF" },
+        { name: "theme-purple", bgcolor: "bg-[#6A5ACD]", color: "#6A5ACD" },
+        { name: "theme-pink", bgcolor: "bg-[#DB7093]", color: "#DB7093" },
+        { name: "theme-brown", bgcolor: "bg-[#8B4513]", color: "#8B4513" },
+    ];
+
+    const { theme, setTheme } = useContext(ThemeContext);
+
     return (
-        <>
-            <nav className="bg-gray-800 text-special-bg2 sm:w-72 w-36 h-screen px-7 py-12 flex flex-col justify-between sticky left-0 top-0">
+        <div className="bg-primary sm:w-72 w-36">
+            <nav className="bg-gray-800 text-special-bg2 h-screen px-7 py-12 flex flex-col justify-between sticky left-0 top-0">
                 <div>
                     <Link to="/">
                         <div className="flex justify-center mb-10 text-white"><Logo type="navbar" /></div>
@@ -39,6 +52,18 @@ const Navbar = (props) => {
                         </div>
                     </Link>
                 </div>
+
+                <div className="md:flex md:gap-2 text-sm text-white">
+                    Themes
+                    {themes.map((t) => (
+                        <div
+                            key={t.name}
+                            className={`${t.bgcolor} md:w-4 h-4 rounded-sm cursor-pointer mb-2`}
+                            onClick={() => setTheme(t)}
+                        ></div>
+                    ))}
+                </div>
+
                 <div className="sticky bottom-12">
                     <Link to="/login">
                         <div className="flex bg-special-bg3 px-4 py-3 rounded-md duration-100 bg-gray-600 hover:bg-red-500">
@@ -58,7 +83,7 @@ const Navbar = (props) => {
                     </div>
                 </div>
             </nav>
-        </>
+        </div>
     )
 }
 export default Navbar

@@ -10,10 +10,12 @@ export default {
         body: ['Inter'],
       },
       colors: {
-        primary: ['yellow']
+        primary: "var(--color-primary)",
+        secondary: "#525256"
       },
       backgroundColor: {
-        'primary': '#0074d9',
+        'primary': 'var(--color-primary)',
+        // 'primary': '#0074d9',
         'main-bg': '#f3f3f3'
       }
     },

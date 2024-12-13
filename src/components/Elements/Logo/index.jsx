@@ -9,8 +9,8 @@ const Logo = (props) => {
         </div>
       ) : (
         <div className={`flex justify-center font-poppins tracking-wide text-primary text-4xl ${variant}`}>
-          <span className="font-bold text-green-700">FINE</span>bank
-          <span className="font-bold text-green-700">.IO</span>
+          <span className="font-bold text-primary">FINE</span>bank
+          <span className="font-bold text-primary">.IO</span>
         </div>
         )}
       </>
