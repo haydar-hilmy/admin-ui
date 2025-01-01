@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import PersonIcon from '@mui/icons-material/Person';
 import GridViewIcon from '@mui/icons-material/GridView';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
@@ -8,6 +8,9 @@ import { ExitToApp, MoreVert } from "@mui/icons-material";
 import Logo from "../Elements/Logo";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../../context/themeContext";
+import { AuthContext } from "../../context/authContext";
+import { NotifContext } from "../../context/notifContext";
+import axios from "axios";
 
 const Navbar = (props) => {
     const { type } = props
@@ -21,6 +24,45 @@ const Navbar = (props) => {
     ];
 
     const { theme, setTheme } = useContext(ThemeContext);
+    const { setIsLoggedIn, setName, name } = useContext(AuthContext)
+    const { setMsg, setOpen, setIsLoading } = useContext(NotifContext)
+
+    const navigate = useNavigate()
+
+    const refreshToken = localStorage.getItem("refreshToken")
+
+    const Logout = async () => {
+        setIsLoading(true)
+        try {
+            await axios.get("ttps://jwt-auth-eight-neon.vercel.app/logout", {
+                headers: {
+                    Authorization: `Bearer ${refreshToken}`
+                }
+            })
+
+            
+            
+            setOpen(true)
+            setMsg({ severity: "success", desc: "Logout Success" })
+        } catch (error) {
+            setIsLoading(false)
+            if(error.response){
+                setOpen(true)
+                setMsg({ severity: "error", desc: error.response.data.msg })
+                console.error("Error: ", error)
+                console.error("Error Response: ", error.response)
+            }
+        }
+
+        setIsLoggedIn(false)
+        setName("")
+        setIsLoading(false)
+        
+        localStorage.removeItem("refreshToken")
+        navigate('/login')
+    }
+
+    // const { name } = useContext(AuthContext)
 
     return (
         <div className="bg-primary sm:w-72 w-36">
@@ -28,25 +70,25 @@ const Navbar = (props) => {
                 <div>
                     <Link to="/">
                         <div className="flex justify-center mb-10 text-white"><Logo type="navbar" /></div>
-                        <div className={`${type == "dashboard" ? "bg-primary" : ""} flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
+                        <div className={`${type == "dashboard" ? "bg-primary" : ""} zoom-in flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
                             <div className="text-white mx-auto sm:mx-0"><GridViewIcon></GridViewIcon></div>
                             <div className="ms-3 hidden text-white sm:block">Overview</div>
                         </div>
                     </Link>
                     <Link to="/balance">
-                        <div className={`${type == "balance" ? "bg-primary" : ""} flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
+                        <div className={`${type == "balance" ? "bg-primary" : ""} zoom-in flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
                             <div className="mx-auto text-white sm:mx-0"><AccountBalanceWalletIcon /></div>
                             <div className="ms-3 hidden text-white sm:block">Balances</div>
                         </div>
                     </Link>
                     <Link to="/transaction" >
-                        <div className={`${type == "transaction" ? "bg-primary" : ""} flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
+                        <div className={`${type == "transaction" ? "bg-primary" : ""} zoom-in flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
                             <div className="mx-auto text-white sm:mx-0"><CompareArrowsIcon /> </div>
                             <div className="ms-3 hidden text-white sm:block">Transaction</div>
                         </div>
                     </Link>
                     <Link to="/goals" >
-                        <div className={`${type == "goals" ? "bg-primary" : ""} flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
+                        <div className={`${type == "goals" ? "bg-primary" : ""} zoom-in flex  text-white px-4 py-3 rounded-md duration-100 hover:bg-slate-700`}>
                             <div className="mx-auto text-white sm:mx-0"><AdsClickIcon /> </div>
                             <div className="ms-3 hidden text-white sm:block">Goals</div>
                         </div>
@@ -58,7 +100,7 @@ const Navbar = (props) => {
                     {themes.map((t) => (
                         <div
                             key={t.name}
-                            className={`${t.bgcolor} md:w-4 h-4 rounded-sm cursor-pointer mb-2`}
+                            className={`${t.bgcolor} zoom-in md:w-4 h-4 rounded-sm cursor-pointer mb-2`}
                             onClick={() => setTheme(t)}
                         ></div>
                     ))}
@@ -66,7 +108,7 @@ const Navbar = (props) => {
 
                 <div className="sticky bottom-12">
                     <Link to="/login">
-                        <div className="flex bg-special-bg3 px-4 py-3 rounded-md duration-100 bg-gray-600 hover:bg-red-500">
+                        <div className="flex zoom-in bg-special-bg3 px-4 py-3 rounded-md duration-100 bg-gray-600 hover:bg-red-500">
                             <div className="mx-auto text-white sm:mx-0"><ExitToApp /></div>
                             <div className="ms-3 hidden text-white sm:block">Logout</div>
                         </div>
@@ -75,9 +117,10 @@ const Navbar = (props) => {
                     <div className="flex justify-between items-center cursor-pointer">
                         <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="images/icon-user-manx.png" /></div>
                         <div className="hidden text-white sm:block">
-                            Admin
+                            {name}
+                            {/* Admin */}
                             <br />
-                            <b>View Profile</b>
+                            <span className="text-sm"><b>View Profile</b></span>
                         </div>
                         <div className="hidden text-white sm:block"><MoreVert /> </div>
                     </div>

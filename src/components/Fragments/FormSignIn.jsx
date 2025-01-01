@@ -4,13 +4,17 @@ import Checkbox from "../Elements/Checkbox"
 import LabeledInput from "../Elements/LabeledInput"
 import { useForm } from "react-hook-form"
 import axios from "axios"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import CustomizedSnackbars from "../Elements/Snackbar"
 import { jwtDecode } from "jwt-decode"
+import { AuthContext } from "../../context/authContext"
+import { NotifContext } from "../../context/notifContext"
 
 const FormSignIn = () => {
-  const [msg, setMsg] = useState("")
-  const [open, setOpen] = useState(true)
+  const [msg] = useState("")
+  // const [open, setOpen] = useState(true)
+  const { setMsg, setOpen, setIsLoading } = useContext(NotifContext)
+  const { setIsLoggedIn, setName } = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -19,6 +23,7 @@ const FormSignIn = () => {
     handleSubmit,
     formState: { errors, isValid }
   } = useForm()
+
   const onFormSubmit = async (data) => {
     try {
       const response = await axios.post(
@@ -27,23 +32,33 @@ const FormSignIn = () => {
           email: data.email,
           password: data.password,
         }
+      
       );
 
-      const decoded = jwtDecode(response.data.refreshToken)
-      console.log("Decoded Token: ", decoded)
-  
+      setIsLoading(false)
       setOpen(true)
       setMsg({severity: "Success", desc: "Login Success"})
 
+      setIsLoggedIn(true)
+
+      const decoded = jwtDecode(response.data.refreshToken)
       localStorage.setItem("refreshToken", response.data.refreshToken)
+      
+      console.log("Decoded Token: ", decoded)
+
+
+      setName(decoded.name)
+
       navigate('/')
 
       console.log(response);
     } catch (error) {
+      setIsLoading(false)
+
       if (error.response) {
-        console.log(error.response);
+        console.error(error.response);
         setOpen(true)
-        setMsg({severity: "Error", desc: `Login Failed: ${error.response.data.msg}`})
+        setMsg({severity: "error", desc: `Login Failed: ${error.response.data.msg}`})
       }
     }
   }
@@ -96,7 +111,7 @@ const FormSignIn = () => {
       <Button 
       disabled={isValid ? false : true}
       variant={`
-        ${isValid ? 'bg-primary' : 'bg-gray-400'}
+        ${isValid ? 'bg-primary zoom-in' : 'bg-gray-400'}
         h-12 rounded-md text-sm w-full text-white
         `} type="submit">
         Login
@@ -113,8 +128,11 @@ const FormSignIn = () => {
         )
       }
       {/* </Link> */}
-    </form >
+    </form>
   )
 }
 
 export default FormSignIn
+
+// 1. Code Auth sudah benar, namun WRONG PASSWORD yang belum diketahui penyebabnya
+// 2. Next masih lanjut Spinner

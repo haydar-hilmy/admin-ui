@@ -7,7 +7,7 @@ const Console = () => {
                 <path d="M16 17V21" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M23 20H23.01" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 <path d="M26 18H26.01" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M25.32 13H14.68C13.6903 13.0002 12.7358 13.3674 12.001 14.0305C11.2663 14.6936 10.8034 15.6055 10.702 16.59C10.696 16.642 10.692 16.691 10.685 16.742C10.604 17.416 10 22.456 10 24C10 24.7956 10.3161 25.5587 10.8787 26.1213C11.4413 26.6839 12.2044 27 13 27C14 27 14.5 26.5 15 26L16.414 24.586C16.789 24.2109 17.2976 24.0001 17.828 24H22.172C22.7024 24.0001 23.211 24.2109 23.586 24.586L25 26C25.5 26.5 26 27 27 27C27.7956 27 28.5587 26.6839 29.1213 26.1213C29.6839 25.5587 30 24.7956 30 24C30 22.455 29.396 17.416 29.315 16.742C29.308 16.692 29.304 16.642 29.298 16.591C29.1968 15.6063 28.7341 14.6941 27.9993 14.0308C27.2645 13.3675 26.3099 13.0003 25.32 13Z" stroke="#666666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M25.32 13H14.68C13.6903 13.0002 12.7358 13.3674 12.001 14.0305C11.2663 14.6936 10.8034 15.6055 10.702 16.59C10.696 16.642 10.692 16.691 10.685 16.742C10.604 17.416 10 22.456 10 24C10 24.7956 10.3161 25.5587 10.8787 26.1213C11.4413 26.6839 12.2044 27 13 27C14 27 14.5 26.5 15 26L16.414 24.586C16.789 24.2109 17.2976 24.0001 17.828 24H22.172C22.7024 24.0001 23.211 24.2109 23.586 24.586L25 26C25.5 26.5 26 27 27 27C27.7956 27 28.5587 26.6839 29.1213 26.1213C29.6839 25.5587 30 24.7956 30 24C30 22.455 29.396 17.416 29.315 16.742C29.308 16.692 29.304 16.642 29.298 16.591C29.1968 15.6063 28.7341 14.6941 27.9993 14.0308C27.2645 13.3675 26.3099 13.0003 25.32 13Z" stroke="#666666" strokeWidth="2"strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </>
     )
@@ -85,8 +85,8 @@ const ArrowUpRight = () => {
         <>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="24" height="24" rx="12" fill="white" />
-                <path d="M8.66669 15.3333L15.3334 8.66667" stroke="#299D91" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M8.66669 8.66667H15.3334V15.3333" stroke="#299D91" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M8.66669 15.3333L15.3334 8.66667" stroke="#299D91" strokeWidth="1.5"strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M8.66669 8.66667H15.3334V15.3333" stroke="#299D91" strokeWidth="1.5"strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </>
     )
@@ -96,9 +96,9 @@ const Edit = () => {
     return (
         <>
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="32" height="32" rx="4" fill="#D2D2D2" fill-opacity="0.25" />
-                <path d="M16 21.3333H22" stroke="#525256" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M19 10.3333C19.2652 10.0681 19.6249 9.91913 20 9.91913C20.1857 9.91913 20.3696 9.95571 20.5412 10.0268C20.7128 10.0978 20.8687 10.202 21 10.3333C21.1313 10.4647 21.2355 10.6206 21.3066 10.7921C21.3776 10.9637 21.4142 11.1476 21.4142 11.3333C21.4142 11.5191 21.3776 11.703 21.3066 11.8745C21.2355 12.0461 21.1313 12.202 21 12.3333L12.6667 20.6667L10 21.3333L10.6667 18.6667L19 10.3333Z" stroke="#525256" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <rect width="32" height="32" rx="4" fill="#D2D2D2" fillOpacity="0.25" />
+                <path d="M16 21.3333H22" stroke="#525256" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M19 10.3333C19.2652 10.0681 19.6249 9.91913 20 9.91913C20.1857 9.91913 20.3696 9.95571 20.5412 10.0268C20.7128 10.0978 20.8687 10.202 21 10.3333C21.1313 10.4647 21.2355 10.6206 21.3066 10.7921C21.3776 10.9637 21.4142 11.1476 21.4142 11.3333C21.4142 11.5191 21.3776 11.703 21.3066 11.8745C21.2355 12.0461 21.1313 12.202 21 12.3333L12.6667 20.6667L10 21.3333L10.6667 18.6667L19 10.3333Z" stroke="#525256" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </>
     )
