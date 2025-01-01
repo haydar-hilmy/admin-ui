@@ -31,9 +31,9 @@ function AuthLayout(props) {
             type="button"
           >
             <svg
-              class="h-6 w-6 mr-2"
+              className="h-6 w-6 mr-2"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
               width="800px"
               height="800px"
               viewBox="-0.5 0 48 48"
@@ -45,7 +45,7 @@ function AuthLayout(props) {
               <g
                 id="Icons"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
                 fillRule="evenodd"
               >

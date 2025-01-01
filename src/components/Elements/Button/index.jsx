@@ -1,8 +1,9 @@
 const Button = (props) => {
-    const { children, type, variant } = props;
+    const { children, type, variant, disabled } = props;
     return (
         <button
-            className={variant}
+            disabled={disabled}
+            className={`${variant} disabled:cursor-not-allowed`}
             type={type}
         >
             {children}
