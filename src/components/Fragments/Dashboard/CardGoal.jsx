@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { goals } from "../../../data/goals";
 import Card from "../../Elements/Card";
 import CompositionExample from "../../Elements/GaugeChart";
 import { Icon } from "../../Icons/Icons";
 import axios from "axios";
+import { NotifContext } from "../../../context/notifContext";
+import { AuthContext } from "../../../context/authContext";
 
 const CardGoal = () => {
 
     const [goals, setGoals] = useState({ presentAmount: 0, targetAmount: 0 })
+    const { setOpen, setMsg } = useContext(NotifContext)
+    const { setIsLoggedIn } = useContext(AuthContext)
 
     const chartValue = (goals.presentAmount * 100) / goals.targetAmount;
 
