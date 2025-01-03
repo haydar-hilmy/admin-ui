@@ -42,15 +42,15 @@ const App = () => {
     },
     {
       path: "/balance",
-      element: <BalancePage />
+      element: <RequireAuth><BalancePage /></RequireAuth>
     },
     {
       path: "/transaction",
-      element: <TransactionPage/>
+      element: <RequireAuth><TransactionPage/></RequireAuth>
     },
     {
       path: "/goals",
-      element: <GoalPage/>
+      element: <RequireAuth><GoalPage/></RequireAuth>
     }
   ]);
 
