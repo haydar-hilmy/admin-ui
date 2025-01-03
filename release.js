@@ -28,7 +28,7 @@ try {
 
   // Jalankan git push
   console.log('Pushing changes...');
-  execSync('git push deploy main', { stdio: 'inherit' });
+  execSync('git push psk main', { stdio: 'inherit' });
 
   console.log('Release process complete!');
 } catch (error) {
