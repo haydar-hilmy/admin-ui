@@ -149,7 +149,7 @@ function AuthLayout(props) {
           )}
         </div>
         <div className="flex justify-center py-3">
-          {/* <ToggleSwitch onchange={(e) => setIsDarkMode(e.target.checked)} isChecked={isDarkMode} /> */}
+          <ToggleSwitch onchange={(e) => setIsDarkMode(e.target.checked)} isChecked={isDarkMode} />
         </div>
         {/* link end */}
       </motion.div>

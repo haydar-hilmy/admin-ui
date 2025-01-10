@@ -117,7 +117,7 @@ const Navbar = (props) => {
                     <div className="flex justify-between items-center cursor-pointer">
                         <div className="mx-auto text-white sm:mx-0"><img className="w-10" src="images/icon-user-manx.png" /></div>
                         <div className="hidden text-white sm:block">
-                            {name}
+                            <span id="myName">{name}</span>
                             {/* Admin */}
                             <br />
                             <span className="text-sm"><b>View Profile</b></span>

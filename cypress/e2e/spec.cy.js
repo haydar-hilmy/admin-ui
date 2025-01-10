@@ -57,4 +57,36 @@ describe("User Login Testing", () => {
 
     cy.url().should("eq", "http://localhost:5173/");
   });
+
+  it("User menekan tombol untuk menuju halaman dashboard", () => {
+    cy.visit("http://localhost:5173/login");
+
+    cy.get('input[type="email"][name="email"]').type("111202214577@mhs.dinus.ac.id");
+    cy.get('input[type="password"][name="password"]').type("123456");
+
+    cy.get('button[type="submit"]').click();
+
+    cy.get('a[href="/"]').click();
+
+    cy.url().should("eq", "http://localhost:5173/");
+  });
+
+  it("Memastikan halaman dashboard berdasarkan URL", () => {
+    cy.visit("http://localhost:5173/");
+
+    cy.url().should("eq", "http://localhost:5173/");
+  });
+
+  it("Melakukan reload dan mengecek nama user pada navbar tidak hilang", () => {
+    cy.visit("http://localhost:5173/login");
+
+    cy.get('input[type="email"][name="email"]').type("111202214577@mhs.dinus.ac.id");
+    cy.get('input[type="password"][name="password"]').type("123456");
+
+    cy.get('button[type="submit"]').click();
+
+    cy.reload();
+
+    cy.get('span#myName').should("not.be.empty");
+  });
 });

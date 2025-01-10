@@ -14,12 +14,13 @@ const CardGoal = () => {
     const [goals, setGoals] = useState({ presentAmount: 0, targetAmount: 0 })
     const { setOpen, setMsg } = useContext(NotifContext)
     const { setIsLoggedIn } = useContext(AuthContext)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoadingGoals, setIsLoadingGoals] = useState(true)
 
     const chartValue = (goals.presentAmount * 100) / goals.targetAmount;
 
     const getData = async () => {
         try {
+            setIsLoadingGoals(true)
             const refreshToken = localStorage.getItem("refreshToken");
 
             console.info("RefreshToken: ", refreshToken)
@@ -37,6 +38,7 @@ const CardGoal = () => {
                 targetAmount: response.data.data[0].target_amount,
             })
 
+            setIsLoadingGoals(false)
             console.log("response: ", response);
         } catch (error) {
             if (error.response) {
@@ -64,12 +66,18 @@ const CardGoal = () => {
         console.log("GetData")
     }, []);
 
+    const getDate = new Date().toDateString().slice(4);
+
     return (
         <Card
             title="Goals">
 
             {
-                isLoading ? <CircularProgress isLoading={isLoading} /> : (
+                isLoadingGoals ? (
+                    <div className="flex h-full justify-center items-center">
+                        <CircularProgress />
+                    </div>
+                ) : (
                     <>
                         <div className="p-2">
                             <div className="flex justify-between">
@@ -81,7 +89,7 @@ const CardGoal = () => {
                                         <Icon.Edit />
                                     </div>
                                 </div>
-                                <div>Nov, 2023</div>
+                                <div>{getDate}</div>
                             </div>
                             <div className="border-b-2 my-4"></div>
                             <div className="flex justify-between">

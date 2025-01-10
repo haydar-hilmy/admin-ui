@@ -2,13 +2,18 @@ import { useEffect, useState } from "react";
 // import bills from "../../../data/bill";
 import Card from "../../Elements/Card";
 import axios from "axios";
+import SimpleBackdrop from "../../Elements/Backdrop";
+import { CircularProgress } from "@mui/material";
 
 const CardBill = () => {
 
     const [bills, setBills] = useState([])
 
+    const [isLoadingBill, setIsLoadingBill] = useState(true)
+
     const getData = async () => {
         try {
+            setIsLoadingBill(true)
             const refreshToken = localStorage.getItem("refreshToken");
 
             const response = await axios.get(
@@ -21,6 +26,7 @@ const CardBill = () => {
             );
 
             setBills(response.data.data)
+            setIsLoadingBill(false)
             console.group("CardBill Response")
             console.log("Response Data: ", response.data.data);
             console.groupEnd()
@@ -77,9 +83,17 @@ const CardBill = () => {
 
     return (
         <Card title="Upcoming Bill">
-            <div className="h-full flex flex-col justify-around">
-                {billCard}
-            </div>
+            {
+                isLoadingBill ? (
+                    <div className="flex justify-center items-center h-48">
+                        <CircularProgress />
+                    </div>
+                ) : (
+                    <div className="h-full flex flex-col justify-around">
+                        {billCard}
+                    </div>
+                )
+            }
         </Card>
     )
 }
