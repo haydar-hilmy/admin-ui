@@ -11,12 +11,13 @@ export default {
       },
       colors: {
         primary: "var(--color-primary)",
-        secondary: "#525256"
+        secondary: "#525256",
       },
       backgroundColor: {
         'primary': 'var(--color-primary)',
         // 'primary': '#0074d9',
-        'main-bg': '#f3f3f3'
+        // 'main-bg': '#f3f3f3'
+        'main-bg': 'var(--bg-color-primary)'
       }
     },
   },

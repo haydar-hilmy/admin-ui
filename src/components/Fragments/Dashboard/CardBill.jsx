@@ -1,7 +1,58 @@
-import bills from "../../../data/bill";
+import { useEffect, useState } from "react";
+// import bills from "../../../data/bill";
 import Card from "../../Elements/Card";
+import axios from "axios";
 
 const CardBill = () => {
+
+    const [bills, setBills] = useState([])
+
+    const getData = async () => {
+        try {
+            const refreshToken = localStorage.getItem("refreshToken");
+
+            const response = await axios.get(
+                "https://jwt-auth-eight-neon.vercel.app/bills",
+                {
+                    headers: {
+                        Authorization: `Bearer ${refreshToken}`,
+                    },
+                }
+            );
+
+            setBills(response.data.data)
+            console.group("CardBill Response")
+            console.log("Response Data: ", response.data.data);
+            console.groupEnd()
+        } catch (error) {
+            console.error(error)
+            if (error.response) {
+                if (error.response.status == 401) {
+                    setOpen(true);
+                    setMsg({
+                        severity: "error",
+                        desc: "Session Has Expired. Please Login.",
+                    });
+
+                    setIsLoggedIn(false);
+                    setName("");
+
+                    localStorage.removeItem("refreshToken");
+                    navigate("/login");
+                } else {
+                    console.log(error.response);
+                }
+            }
+        }
+    }
+
+    useEffect(() => {
+        getData();
+        console.group("CardBill")
+        console.log("GetData Bill")
+        console.groupEnd()
+    }, []);
+
     const billCard = bills.map((bill) => (
         <div key={bill.id} className="lg:flex justify-between pt-3 pb-3">
             <div className="flex">

@@ -88,7 +88,7 @@ const FormSignIn = () => {
         <LabeledInput
           label="password"
           type="password"
-          placeholder="********"
+          placeholder="****"
           name="password"
           register={
             register("password", {

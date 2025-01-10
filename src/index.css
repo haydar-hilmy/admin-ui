@@ -8,9 +8,21 @@
     :root {
         /* default primary color*/
       --color-primary: #299D91;
+      --bg-color-primary: #f3f3f3;
+      /* --bg-color-primary: #1f2937; */
     }
   }
   
+
+  
+  .bg-theme-light {
+    --bg-color-primary: #f3f3f3;
+  }
+  
+  .bg-theme-dark {
+    --bg-color-primary: #1f2937;
+  }
+
   .theme-blue {
     --color-primary: #1E90FF;
   }

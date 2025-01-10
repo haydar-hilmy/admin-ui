@@ -10,6 +10,10 @@ export const NotifContextProvider = ({ children }) => {
   //state untuk backdrop loader
   const [isLoading, setIsLoading] = useState(false);
 
+  console.group("NotifContext")
+  console.log({ msg, open, isLoading });
+  console.groupEnd()
+
   return (
     <NotifContext.Provider
       value={{ msg, setMsg, open, setOpen, isLoading, setIsLoading }}

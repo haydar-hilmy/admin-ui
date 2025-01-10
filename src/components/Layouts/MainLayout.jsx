@@ -10,10 +10,10 @@ const MainLayout = (props) => {
   const { children, type } = props
   const { msg, setMsg, open, setOpen, isLoading, setIsLoading } = useContext(NotifContext)
 
-  const { theme } = useContext(ThemeContext)
+  const { theme, bgMode, txtMode } = useContext(ThemeContext)
 
   return (
-    <div className={`flex bg-main-bg w-screen min-h-screen max-w-full ${theme.name}`}>
+    <div className={`flex bg-main-bg ${bgMode} w-screen min-h-screen max-w-full ${theme.name}`}>
       {/* navbar start*/}
       <Navbar type={type} />
       {/* navbar end*/}
